@@ -1,0 +1,39 @@
+{
+  "name": "holy-grail-ios-layout",
+  "version": "1.0.0",
+  "description": "Holy grail mobile safari layout/behavior.",
+  "main": "add-statusbar-doubletap-event.js",
+  "scripts": {
+    "start": "watchify main.js -o example/bundle.js",
+    "build-test-bundle": "browserify main.js > example/bundle.js",
+    "bundle": "browserify add-statusbar-doubletap-event.js | uglifyjs > statusbar-tap.min.js",
+    "test": "http-server example",
+    "deploy": "npm run build-test-bundle && surge -p example -d ios-layout.surge.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/henrik/add-statusbar-doubletap-event.git"
+  },
+  "keywords": [
+    "ios",
+    "safari",
+    "doubletap",
+    "statusbar"
+  ],
+  "author": "Henrik Joreteg <henrik@joreteg.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/henrik/add-statusbar-doubletap-event/issues"
+  },
+  "homepage": "https://github.com/henrik/add-statusbar-doubletap-event#readme",
+  "dependencies": {
+    "is-ios": "^1.0.0",
+    "lodash.debounce": "^3.1.1"
+  },
+  "devDependencies": {
+    "browserify": "^11.0.1",
+    "http-server": "^0.8.0",
+    "uglify-js": "*",
+    "watchify": "^3.3.1"
+  }
+}
